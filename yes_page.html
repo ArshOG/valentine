@@ -1,17 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knew you would say yes!</title>
-    <link rel="stylesheet" href="./yes_style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yay! ❤️</title>
+
+  <link rel="stylesheet" href="yes_style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="header_text">Knew you would say yes!</h1>
-        <div class="gif_container">
-            <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif">
-        </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1 class="header_text">Yay! I knew it 💖</h1>
+    <p class="sub_text">
+      This just made my whole day 🥹<br>
+      Can’t wait to make more memories together ✨
+    </p>
+
+    <div class="gif_container">
+      <img src="https://gifdb.com/images/high/cute-love-bear-kiss-zq0y8k7p0y4q6l4p.gif" alt="Love gif">
     </div>
+
+    <button class="back-btn" onclick="history.back()">⬅ Go back</button>
+  </div>
+
 </body>
 </html>
+.sub_text {
+    font-size: 1.2em;
+    margin: 15px 0 25px;
+    color: #555;
+}
+
+/* Back button */
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #ff5a7a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 90, 122, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(255, 90, 122, 0.6);
+}
+
+/* Floating hearts animation */
+.hearts::before,
+.hearts::after {
+    content: "💖 💕 💗 💓 💞";
+    position: fixed;
+    width: 100%;
+    top: -10%;
+    left: 0;
+    font-size: 2rem;
+    animation: floatHearts 6s linear infinite;
+    pointer-events: none;
+}
+
+.hearts::after {
+    animation-delay: 3s;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(120vh);
+        opacity: 0;
+    }
+}
